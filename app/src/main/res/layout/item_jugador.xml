@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bordes_botones_opciones"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewNombreJugador"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Jugador"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:textColor="#000000"/>
+
+    <ImageButton
+        android:id="@+id/btnEliminarJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_redondeado"
+        android:padding="10dp"
+        android:src="@android:drawable/ic_menu_delete"
+        android:contentDescription="Eliminar jugador"/>
+
+
+</LinearLayout>
