@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mostrarDialogoConfirmacion() {
+        if (listaJugadores.isEmpty()) {
+            Toast.makeText(this, "No hay ningún jugador registrado", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_personalizado, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -89,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         TextView subtituloDialogo = dialogView.findViewById(R.id.subtituloDialogo);
 
         tituloDialogo.setText("Confirmación");
-        subtituloDialogo.setText("¿Estás seguro de que quieres iniciar el juego?");
+        subtituloDialogo.setText("¿Estás seguro de que quieres reiniciar el juego?");
 
         Button botonCancelar = dialogView.findViewById(R.id.botonCancelar);
         Button botonConfirmar = dialogView.findViewById(R.id.botonConfirmar);
@@ -104,10 +109,15 @@ public class MainActivity extends AppCompatActivity {
             reiniciarJuego();
             alertDialog.dismiss();
         });
+
         alertDialog.show();
     }
     private void reiniciarJuego() {
-        baseDatos.borrarTodasLasPuntuaciones(); // Ahora llamará al método correcto
+        if (listaJugadores.isEmpty()) {
+            Toast.makeText(this, "No hay jugadores para reiniciar el juego", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        baseDatos.borrarTodasLasPuntuaciones();
         Intent intent = new Intent(MainActivity.this, JuegoActivity.class);
         intent.putStringArrayListExtra("jugadores", new ArrayList<>(listaJugadores));
         startActivity(intent);
