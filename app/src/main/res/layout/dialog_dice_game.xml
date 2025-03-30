@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tituloDialogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dados Virtuales🎲"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+  <TextView
+      android:id="@+id/subtituloDialogo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Pulsa los dados que te convengan"
+      android:textColor="#000000"
+      android:textSize="15sp"
+      android:layout_marginBottom="10dp"/>
+
+    <GridView
+        android:id="@+id/gridTop"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:padding="10dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:background="@drawable/square_border_grid"/>
+
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="12dp"/>
+
+  <Button
+      android:id="@+id/btnRotate"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="15dp"
+      android:backgroundTint="#2089dc"
+      android:paddingVertical="12dp"
+      android:text="Girar"
+      android:textColor="#ECECEC"
+      android:textSize="16sp" />
+
+  <TextView
+      android:id="@+id/subtituloDialogo2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Pulsa los dados que quieras volver a girar"
+      android:textColor="#000000"
+      android:textSize="15sp"
+      android:layout_marginBottom="10dp"/>
+
+  <GridView
+        android:id="@+id/gridBottom"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:numColumns="3"
+        android:padding="10dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+      android:background="@drawable/square_border_grid"/>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="12dp"/>
+
+    <Button
+        android:id="@+id/btnToggleVisibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#2089dc"
+        android:paddingVertical="12dp"
+        android:text="Mostrar Tablero"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+  <Button
+      android:id="@+id/botonCancelar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:backgroundTint="#2089dc"
+      android:paddingVertical="12dp"
+      android:text="Cerrar"
+      android:textColor="#FFFFFF"
+      android:textSize="16sp" />
+</LinearLayout>

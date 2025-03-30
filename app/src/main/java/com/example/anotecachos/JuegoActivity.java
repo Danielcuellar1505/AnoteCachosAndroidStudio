@@ -32,7 +32,7 @@ public class JuegoActivity extends AppCompatActivity {
 
     private TextView textViewJugadorTurno;
     private TextView textViewPuntuacion;
-    private Button botonCambiarTurno, botonVerPuntuaciones;
+    private Button botonCambiarTurno, botonVerPuntuaciones, btnAbrirDados;
     private TableroView tableroView;
     private ArrayList<String> listaJugadores;
     private int turnoActual = 0;
@@ -81,6 +81,7 @@ public class JuegoActivity extends AppCompatActivity {
             return;
         }
 
+
         actualizarTurno();
         botonCambiarTurno.setOnClickListener(v -> cambiarTurno());
         botonVerPuntuaciones.setOnClickListener(v -> mostrarPuntuacionesActuales());
@@ -90,6 +91,11 @@ public class JuegoActivity extends AppCompatActivity {
                 verificarFinDelJuegoConRetardo();
             }
         };
+        // Configurar el botón
+        btnAbrirDados = findViewById(R.id.btnAbrirDados);
+        btnAbrirDados.setOnClickListener(v -> {
+            new DadosVirtuales().mostrarDialogoDados(JuegoActivity.this);
+        });
     }
     private void mostrarMenuOpciones(View view) {
         popupMenu = new PopupMenu(this, view);
