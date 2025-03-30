@@ -45,7 +45,7 @@ public class DiceAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         FrameLayout square;
-        int size = squareSizeTop; // Usar siempre el tamaño superior
+        int size = squareSizeTop;
 
         if (convertView == null) {
             square = new FrameLayout(context);
@@ -59,7 +59,6 @@ public class DiceAdapter extends BaseAdapter {
 
         Dice dice = dices.get(position);
         if (dice.getCircleCount() == 0) {
-            // Mostrar texto "Gira" si no tiene círculos
             TextView textView = new TextView(context);
             textView.setText("Gira");
             textView.setTextSize(18);
@@ -71,21 +70,17 @@ public class DiceAdapter extends BaseAdapter {
             square.setFocusable(false);
             square.setEnabled(false);
         } else {
-            // Mostrar círculos
             for (int j = 0; j < dice.getCircleCount(); j++) {
                 View circle = createCircle(dice.getCircleCount(), j, size);
                 square.addView(circle);
             }
         }
-
         return square;
     }
-
     private View createCircle(int circleCount, int position, int squareSize) {
         View circle = new View(context);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(40, 40);
 
-        // Ajustar posiciones según el número de círculos
         float scale = squareSize / 250f;
 
         switch (circleCount) {
@@ -149,20 +144,16 @@ public class DiceAdapter extends BaseAdapter {
                 break;
             case 6:
                 if (position < 3) {
-                    // Aumenté el 15 a 25 (más separación lateral) y 20 a 30 (más separación superior)
                     params.leftMargin = (int) ((int)((position % 3) * 60 + 35) * scale);
-                    params.topMargin = (int)(50 * scale); // Más separación del borde superior
+                    params.topMargin = (int)(50 * scale);
                 } else {
-                    // Aumenté el 15 a 25 (más separación lateral) y 120 a 130 (más separación inferior)
                     params.leftMargin = (int) ((int)(((position - 3) % 3) * 60 + 35) * scale);
-                    params.topMargin = (int)(150 * scale); // Más separación del borde inferior
+                    params.topMargin = (int)(150 * scale);
                 }
                 break;
         }
-
         circle.setLayoutParams(params);
         circle.setBackgroundResource(R.drawable.circle_shape);
-
         ObjectAnimator animator = ObjectAnimator.ofFloat(circle, "alpha", 0f, 1f);
         animator.setDuration(300);
         animator.start();
